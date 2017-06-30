@@ -1,0 +1,6 @@
+{
+	"name" : "User",
+	"email" : "demo@email.com",
+	"password" : "demo",
+	"secret" : "LearnNode"
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+  <body>
+  <style>
+      body,html{
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+      }
+      body{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      #email{
+          margin-bottom: 15px;
+      }
+      #submit{
+          text-align: -webkit-center;
+          width:25%;
+      }
+      form,input{
+          width: 500px;
+          padding: 10px;
+          display: inline-flex;
+          flex-direction: column;
+          color: rgba(123, 77, 152, 0.96);
+      }
+
+  </style>
+    <div>
+      <form method="post" action="/api/v1/users">
+        Username:
+        <input type="text" name="name" id="name" />
+        Password:
+        <input type="password" name="password" id="password" />
+        Email:
+        <input type="email" name="email" id="email" />
+        <input type="submit" id="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>
