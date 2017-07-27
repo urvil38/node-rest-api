@@ -1,15 +1,30 @@
 version : "2"
 services:
   web:
-    build: .
+    build: ./app
     volumes:
-      - ./:/node-login
+      - ./app:/node-login
     ports:
-      - "8080:8080"
+      - "8080"
     links:
       - mongo
+   
+  proxy:
+    build: proxy
+    ports:
+      - "80:80"
+    volumes: 
+      - "./proxy:/etc/nginx/conf.d/"    
 
   mongo:
     image: mongo
     ports: 
-      - "27017:27017"      
+      - "27017:27017" 
+    volumes_from:
+      - mongodata
+      
+  mongodata:
+    image: tianon/true
+    volumes:
+      - ~/data/mongo:/data/db
+      - ~/data:/data           
