@@ -20,10 +20,8 @@ services:
     image: tutum/mongodb
     ports: 
       - "27017:27017"
-    environment: 
-      - MONGODB_USER=urvil
-      - MONGODB_DATABASE=node-login
-      - MONGODB_PASS=urvilpatel  
+    env_file:
+      - ./app/mongo.env 
     volumes_from:
       - mongodata
       
