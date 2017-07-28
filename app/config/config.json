@@ -2,5 +2,7 @@
 	"name" : "User",
 	"email" : "demo@email.com",
 	"password" : "demo",
-	"secret" : "LearnNode"
+	"secret" : "LearnNode",
+	"user" : "urvil",
+	"pass" : "urvilpatel"
 }

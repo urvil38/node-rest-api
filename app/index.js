@@ -20,11 +20,11 @@ app.set('view engine','ejs');
 require('./routes')(router);
 app.use('/api/v1', router);
 
-app.get('/reg',(req,res) => {
+app.get('/register',(req,res) => {
     res.render('register',{title:'Register'})
 });
 
-app.get('/loginuser',(req,res) => {
+app.get('/login',(req,res) => {
     res.render('loginuser',{title:'Login'})
 });
 

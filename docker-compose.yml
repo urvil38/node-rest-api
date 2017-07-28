@@ -1,6 +1,6 @@
 version : "2"
 services:
-  web:
+  app:
     build: ./app
     volumes:
       - ./app:/node-login
@@ -17,9 +17,13 @@ services:
       - "./proxy:/etc/nginx/conf.d/"    
 
   mongo:
-    image: mongo
+    image: tutum/mongodb
     ports: 
-      - "27017:27017" 
+      - "27017:27017"
+    environment: 
+      - MONGODB_USER=urvil
+      - MONGODB_DATABASE=node-login
+      - MONGODB_PASS=urvilpatel  
     volumes_from:
       - mongodata
       
