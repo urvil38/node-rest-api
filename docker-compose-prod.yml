@@ -25,4 +25,4 @@ services:
     image: tianon/true
     volumes:
       - ~/data/mongo:/data/db
-      - ~/data:/data           
+      - ~/data:/data
