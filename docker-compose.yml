@@ -1,7 +1,8 @@
 version : "2"
+
 services:
   app:
-    build: ./app
+    build: app
     volumes:
       - ./app:/node-login
     ports:
@@ -14,7 +15,7 @@ services:
     ports:
       - "80:80"
     volumes: 
-      - "./proxy:/etc/nginx/conf.d/"    
+      - "./proxy:/etc/nginx/conf.d/" 
 
   mongo:
     image: tutum/mongodb
@@ -22,11 +23,13 @@ services:
       - "27017:27017"
     env_file:
       - ./app/mongo.env 
-    volumes_from:
-      - mongodata
-      
-  mongodata:
-    image: tianon/true
     volumes:
       - ~/data/mongo:/data/db
-      - ~/data:/data           
+
+  prometheus:
+    image: prom/prometheus
+    ports: 
+      - "9090:9090/tcp"
+    volumes: 
+      - ~/prometheus.yml:/etc/prometheus/prometheus.yml
+    network_mode: "host"
